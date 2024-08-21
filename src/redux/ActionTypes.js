@@ -1,0 +1,10 @@
+export const AUTH_SUCCESS="AUTH_SUCCESS"
+export const AUTH_FAILED="AUTH_FAILED"
+export const AUTH_LOADING="AUTH_LOADING"
+export const AUTH_LOGOUT="AUTH_LOGOUT"
+
+export const CHANGE_MODE="CHANGE_MODE"
+export const MODE_CHECK="MODE_CHECK"
+export const ADD_PROJECTS="ADD_PROJECTS"
+export const ADD_Articles="ADD_ARTICLES"
+export const ADD_INDIVIDUAL_Article="ADD_INDIVIDUAL_Article"
