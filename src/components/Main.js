@@ -13,6 +13,7 @@ import AdminRoute from '../utils/safeRoutes/AdminRoute';
 import AddProject from './admin/AddProject';
 import AddArticle from './admin/AddArticle';
 import IndividualArticle from './articles/IndividualArticle';
+import IndividualProject from './projects/IndividualProject';
 
 
 const mapDispatchToProps=dispatch=>{
@@ -44,7 +45,8 @@ const Main = (props) => {
         <Route path='/projects' element={<Projects/>}/>
         <Route path='/articles' element={<Articles/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path="/article/:id" element={<IndividualArticle />} />
+        <Route path="/articles/:id" element={<IndividualArticle />} />
+        <Route path='/projects/:id' element={<IndividualProject/>}/>
         
         <Route element={<AdminRoute/>}>
         <Route path='/dashboard' element={<Dashboard/>}/>

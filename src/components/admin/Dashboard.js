@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '../Layout';
 import { Button,Box, IconButton, Typography } from '@mui/material';
 import { logout } from '../../redux/AuthActionCreaters';
@@ -6,8 +6,10 @@ import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteProject } from '../../api/ApiProject';
-import { fetchArticles, fetchProjects } from '../../redux/ActionCreaters';
+import { addMessage, fetchArticles, fetchProjects } from '../../redux/ActionCreaters';
 import { deleteArticle } from '../../api/ApiArticle';
+import { getMessage } from '../../api/ApiMessage';
+import Messages from './Messages';
 
 
 const mapStateToProps=state=>{
@@ -15,6 +17,7 @@ const mapStateToProps=state=>{
         projects:state.projects,
         articles:state.articles,
         token:state.token,
+        messages:state.messages
     }
 }
 
@@ -23,6 +26,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchArticles:()=>dispatch(fetchArticles()),
         fetchProjects:()=>dispatch(fetchProjects()),
         logout: () => dispatch(logout()),
+        addMessage:(messages)=>dispatch(addMessage(messages))
     };
 };
 
@@ -42,6 +46,10 @@ const Dashboard = (props) => {
         .catch(err=>console.log(err))
     }
 
+    useEffect(()=>{
+        getMessage(props.token)
+        .then(res=>props.addMessage(res.data))
+    },[])
 
 
     const projects=props.projects.map(project=><Box sx={{border:'1px solid black',alignItems:"center",display:'flex', justifyContent:"space-between",borderRadius:'2px',marginBottom:'4px',padding:'0 4px 0 4px'}} key={project._id} id={project._id} className='flex'>
@@ -67,6 +75,10 @@ const Dashboard = (props) => {
                 {articles}
                 <Button variant='outlined' onClick={()=>navigate('/addArticle',{replace:true})}>Add Articles</Button>
             </Box>
+
+            <div className='mt-8 border rounded p-4'>
+                {props.messages.map(message=><div key={Math.random()}><Messages message={message}/></div>)}
+            </div>
 
             
             <Button variant='outlined' onClick={props.logout}>Logout</Button>

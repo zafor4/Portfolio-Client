@@ -1,46 +1,47 @@
-import React, { useState } from 'react'
-import profile from '../assets/images/PXL_20220308_181126701.jpg'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
+import profile from '../assets/images/PXL_20220308_181126701.jpg';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import { Modal, Box, Typography, Button } from '@mui/material';
 import { updateMode } from '../redux/ActionCreaters';
 import { connect } from 'react-redux';
 
-
-const mapStateToProps=state=>{
+const mapStateToProps = state => {
   return {
-    mode:state.mode
-  }
+    mode: state.mode
+  };
 }
-const mapDispatchToProps=dispatch=>{
+
+const mapDispatchToProps = dispatch => {
   return {
-    updateMode:()=>dispatch(updateMode())
-  }
+    updateMode: () => dispatch(updateMode())
+  };
 }
 
 const Menu = (props) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen(false);
 
   return (
     <div className='flex items-center pt-5 pb-5'>
-      <a href='/'>
-        <img className='w-16 rounded-full border border-black' src={profile} alt='Profile'/>
-      </a>
+      <Link to='/'>
+        <img className='w-14 rounded-full border border-black' src={profile} alt='Profile' />
+      </Link>
       
       {/* mobile menu */}
       <div className='md:hidden ml-auto'>
         <Button variant="contained" color="primary" sx={{
-          background:'white',
-          color:'black'
+          background: 'white',
+          color: 'black'
         }} onClick={() => setOpen(true)}>
           Menu
-        </Button> 
+        </Button>
         <Modal
           open={open}
           onClose={handleClose}
         >
-          <Box 
+          <Box
             sx={{
               position: 'absolute',
               top: '50%',
@@ -53,12 +54,12 @@ const Menu = (props) => {
               p: 4,
             }}
           >
-            <Button 
-              onClick={handleClose} 
-              sx={{ 
-                position: 'absolute', 
-                top: 8, 
-                right: 8 
+            <Button
+              onClick={handleClose}
+              sx={{
+                position: 'absolute',
+                top: 8,
+                right: 8
               }}
             >
               &times;
@@ -67,9 +68,9 @@ const Menu = (props) => {
               Menu
             </Typography>
             <ul className='space-y-4 mt-4'>
-              <li><a href="about">About</a></li>
-              <li><a href="projects">Projects</a></li>
-              <li><a href="articles">Articles</a></li>
+              <li><Link to="/about" onClick={handleClose}>About</Link></li> {/* Use Link component */}
+              <li><Link to="/projects" onClick={handleClose}>Projects</Link></li> {/* Use Link component */}
+              <li><Link to="/articles" onClick={handleClose}>Articles</Link></li> {/* Use Link component */}
             </ul>
           </Box>
         </Modal>
@@ -79,18 +80,18 @@ const Menu = (props) => {
       <div className='hidden md:flex flex-grow justify-center'>
         <div className='flex justify-center border shadow p-1 rounded-md' style={{ width: '300px' }}>
           <ul className='flex space-x-8'>
-            <li><a href="about">About</a></li>
-            <li><a href="projects">Projects</a></li>
-            <li><a href="articles">Articles</a></li>
+            <li><Link to="/about">About</Link></li> {/* Use Link component */}
+            <li><Link to="/projects">Projects</Link></li> {/* Use Link component */}
+            <li><Link to="/articles">Articles</Link></li> {/* Use Link component */}
           </ul>
         </div>
       </div>
       
       <ModeNightIcon sx={{
-        marginLeft:'7px'
-      }} onClick={props.updateMode}/>
+        marginLeft: '7px'
+      }} onClick={props.updateMode} />
     </div>
-  )
+  );
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Menu)
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

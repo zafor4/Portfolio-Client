@@ -1,5 +1,5 @@
 import * as actionTypes from '../redux/ActionTypes'
-import { getProjects } from '../api/ApiProject'
+import { getProjectById, getProjects } from '../api/ApiProject'
 import { getArticleById, getArticles } from '../api/ApiArticle'
 
 export const updateMode=()=>{
@@ -62,4 +62,27 @@ export const fetchIndividualArticle=(id)=>(dispatch)=>{
         dispatch(addIndividualArticle(res.data))
     })
     .catch(err=>console.log(err))
+}
+
+export const addIndividualProject=(project)=>{
+    return {
+        type:actionTypes.ADD_INDIVIDUAL_PROJECT,
+        payload:project
+    }
+}
+
+
+export const fetchIndividualProject=(id)=>(dispatch)=>{
+    getProjectById(id)
+    .then(res=>{
+        dispatch(addIndividualProject(res.data))
+    })
+    .catch(err=>console.log(err))
+}
+
+export const addMessage=messages=>{
+    return{
+        type:actionTypes.ADD_MESSAGE,
+        payload:messages
+    }
 }

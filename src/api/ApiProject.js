@@ -21,3 +21,7 @@ export const deleteProject=(token,id)=>{
         }
     })
 }
+
+export const getProjectById=(id)=>{
+    return axios.get(`${baseUrl}/project/${id}`)
+}

@@ -3,7 +3,9 @@ import * as actionTypes from './ActionTypes';
 const INITIAL_STATE = {
     projects: [],
     articles: [],
-    article:null,
+    article:{},
+    project:{},
+    messages:[],
     token: null,
     user:{},
     loading: false,
@@ -54,6 +56,17 @@ export const reducer = (state = INITIAL_STATE, action) => {
                                         ...state,
                                         article:action.payload
                                     }
+                                    case actionTypes.ADD_INDIVIDUAL_PROJECT:
+                                        return{
+                                            ...state,
+                                            project:action.payload
+                                        }
+                                        case actionTypes.ADD_MESSAGE:
+                                            return{
+                                                ...state,
+                                                messages:action.payload
+
+                                            }
         default:
             return state;
     }

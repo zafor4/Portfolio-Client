@@ -8,3 +8,5 @@ export const MODE_CHECK="MODE_CHECK"
 export const ADD_PROJECTS="ADD_PROJECTS"
 export const ADD_Articles="ADD_ARTICLES"
 export const ADD_INDIVIDUAL_Article="ADD_INDIVIDUAL_Article"
+export const ADD_INDIVIDUAL_PROJECT='ADD_INDIVIDUAL_PROJECT'
+export const ADD_MESSAGE='ADD_MESSAGE'

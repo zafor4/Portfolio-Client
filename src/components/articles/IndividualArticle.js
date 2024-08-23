@@ -25,13 +25,23 @@ const IndividualArticle = (props) => {
             props.fetchIndividualArticle(id)
         }
     },[id])
-
+    const formattedDate = new Date(props.article.createdAt).toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short',
+      });
   return (
-    <Layout title='Article'className='container mx-auto px-4 md:px-20'>
-        <div>
-            <h1>{props.article.name}</h1>
-            <img src={`${baseUrl}/article/photo/${props.article._id}`}/>
-            <p>{props.article.description}</p>
+    
+    <Layout title={`Articles/${id}`} className='container mx-auto px-4 md:px-20'>
+        <div className='mt-16'>
+            <p className='text-gray-400 text-sm'>{formattedDate}</p>
+            <h1 className='mt-8 font-bold text-4xl'>{props.article.name}</h1>
+            <img className='rounded shadow mt-8 relative md:left-48' style={{maxHeight:'600px'}} src={`${baseUrl}/article/photo/${props.article._id}`}/>
+            <p className='mt-8'>{props.article.description}</p>
         </div>
     </Layout>
   )
