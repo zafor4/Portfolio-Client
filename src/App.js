@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import {store} from './redux/Store'
 import Preparation from './components/Preparation'
+import Main from './components/Main'
 
 
 const App = () => {
@@ -10,7 +11,7 @@ const App = () => {
     <div>
       <Provider store={store}>
         <BrowserRouter>
-        <Preparation/>
+        <Main/>
         </BrowserRouter>
       </Provider>
     </div>
