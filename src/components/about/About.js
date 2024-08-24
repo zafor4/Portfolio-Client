@@ -8,11 +8,12 @@ import image1 from '../../assets/images/image-3.webp'
 import EmailIcon from '@mui/icons-material/Email';
 import SkillCard from '../home/SkillCard';
 import { Link } from 'react-router-dom';
+import Preparation from '../Preparation';
 
 const About = () => {
   return (
     <Layout title='About' className="container mx-auto px-4 md:px-20">
-        
+        <Preparation>
 <div className='my-16 md:flex '>
 
     <div className=' md:w-3/4 md:mt-24 mb-8 md:mb-0'>
@@ -45,6 +46,7 @@ const About = () => {
         </div>
 </div>
 
+</Preparation>
 
 
     </Layout>

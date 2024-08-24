@@ -16,6 +16,7 @@ import SkillCard from './SkillCard';
 import MessageIcon from '@mui/icons-material/Message';
 import { connect } from 'react-redux';
 import { sendMessage } from '../../api/ApiMessage';
+import Preparation from '../Preparation';
 
 const mapStateToProps = (state) => {
   return {
@@ -51,6 +52,7 @@ const Home = (props) => {
 
   return (
     <Layout title='Home' className='container mx-auto px-4 md:px-20'>
+      <Preparation>
       <div className='mt-16'>
         <div className='md:w-3/4'>
           <h1 className='font-bold text-4xl py-4 leading-10'>
@@ -128,6 +130,7 @@ const Home = (props) => {
           </div>
         </div>
       </div>
+      </Preparation>
     </Layout>
   );
 };

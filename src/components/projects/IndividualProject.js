@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchIndividualProject } from '../../redux/ActionCreaters';
 import { connect } from 'react-redux';
 import { baseUrl } from '../../utils/config';
+import Preparation from '../Preparation';
 
 
 const mapStateToProps=state=>{
@@ -28,11 +29,13 @@ const IndividualProject = (props) => {
 
   return (
     <Layout title={`project/${id}`} className='container mx-auto px-4 md:px-20'>
+      <Preparation>
         <div className='mt-14'>
           <img className='w-16 p-1 rounded-full border-2 border-gray' src={`${baseUrl}/project/photo/${id}`}/>
           <h1 className='font-bold text-4xl mt-4'>{props.project.name}</h1>
           <p className='mt-4'>{props.project.description}</p>
         </div>
+        </Preparation>
     </Layout>
   )
 }

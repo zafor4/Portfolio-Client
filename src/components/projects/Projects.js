@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { baseUrl } from '../../utils/config'
 import { Card,CardMedia,CardContent,Typography,CardActions,Button } from '@mui/material'
 import ProjectCard from '../articles/ProjectCard'
+import Preparation from '../Preparation'
 
 const mapStateToProps=state=>{
   return {
@@ -24,6 +25,7 @@ const Projects = (props) => {
   
   return (
    <Layout title='Projects' className='container mx-auto px-4 md:px-20'>
+    <Preparation>
     <div className='mt-24 mb-20'>
     <div className='md:w-3/4'>
       <h1 className='text-4xl font-bold'>Things I've made trying to put my dent in the universe</h1>
@@ -33,7 +35,7 @@ const Projects = (props) => {
 {projects}
     </div>
     </div>
-    
+    </Preparation>
    </Layout>
   )
 }

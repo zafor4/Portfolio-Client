@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchIndividualArticle } from '../../redux/ActionCreaters'
 import { useParams } from 'react-router-dom';
 import { baseUrl } from '../../utils/config';
+import Preparation from '../Preparation';
 
 const mapStateToProps=state=>{
     return {
@@ -37,12 +38,14 @@ const IndividualArticle = (props) => {
   return (
     
     <Layout title={`Articles/${id}`} className='container mx-auto px-4 md:px-20'>
+        <Preparation>
         <div className='mt-16'>
             <p className='text-gray-400 text-sm'>{formattedDate}</p>
             <h1 className='mt-8 font-bold text-4xl'>{props.article.name}</h1>
             <img className='rounded shadow mt-8 relative md:left-48' style={{maxHeight:'600px'}} src={`${baseUrl}/article/photo/${id}`}/>
             <p className='mt-8'>{props.article.description}</p>
         </div>
+        </Preparation>
     </Layout>
   )
 }
