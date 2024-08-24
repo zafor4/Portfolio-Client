@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 function Preparation(props) {
   const darkTheme = createTheme({
     palette: {
-      mode: props.mode,
+      mode: props.mode ||"light"
     },
   });
 
