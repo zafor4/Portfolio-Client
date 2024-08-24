@@ -1,6 +1,5 @@
 {
   "name": "myportfolio",
-  "homepage": "https://portfolio-client-jade.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
