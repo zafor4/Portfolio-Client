@@ -14,12 +14,12 @@ const About = () => {
   return (
     <Layout title='About' className="container mx-auto px-4 md:px-20">
         <Preparation>
-<div className='my-16 md:flex '>
+<div className='my-20 md:flex '>
 
     <div className=' md:w-3/4 md:mt-24 mb-8 md:mb-0'>
     <img className='md:hidden rounded mb-8' src={image1}/>
-          <h1 className='font-bold text-4xl'> Hi, I am zafor iqbal .Mern stack web developper</h1>
-          <p className='mt-8 text-lg'>Zafor Iqbal is a skilled MERN stack web developer from Bangladesh, passionate about creating dynamic and responsive web applications. With a strong foundation in MongoDB, Express.js, React, and Node.js, Zafor is adept at building full-stack solutions that meet modern web standards. His expertise includes not only backend development but also creating intuitive and user-friendly interfaces, ensuring seamless user experiences. Whether working on authentication systems, implementing dark mode features, or optimizing performance, Zafor brings dedication and technical proficiency to every project.</p>
+          <h1 className='font-bold text-4xl'> About Zafor Iqbal: Passionate Developer & Architecting Tomorrow's Solutions</h1>
+          <p className='mt-8 leading-8'>Zafor Iqbal is a skilled MERN stack web developer from Bangladesh, passionate about creating dynamic and responsive web applications. With a strong foundation in MongoDB, Express.js, React, and Node.js, Zafor is adept at building full-stack solutions that meet modern web standards. His expertise includes not only backend development but also creating intuitive and user-friendly interfaces, ensuring seamless user experiences. Whether working on authentication systems, implementing dark mode features, or optimizing performance, Zafor brings dedication and technical proficiency to every project.</p>
 
         </div>
 

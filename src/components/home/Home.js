@@ -53,13 +53,13 @@ const Home = (props) => {
   return (
     <Layout title='Home' className='container mx-auto px-4 md:px-20'>
       <Preparation>
-      <div className='mt-16'>
+      <div className='mt-20'>
         <div className='md:w-3/4'>
-          <h1 className='font-bold text-4xl py-4 leading-10'>
-            Software developer.
+          <h1 className='font-bold text-4xl leading-10'>
+          Junior Software Engineer | Full-Stack MERN Developer & Software Architecture Enthusiast
           </h1>
-          <p className='leading-8'>
-            Hi! I'm a software engineer with expertise in the MERN stack, focused on building efficient web applications. I'm passionate about solving complex problems and creating impactful software.
+          <p className='leading-8 mt-4'>
+          Hi there! I’m Zafor, a passionate developer with a strong foundation in the MERN stack, dedicated to crafting efficient and scalable software solutions. I thrive on solving complex problems and designing robust software architectures. With a keen eye for detail and a commitment to quality, I'm always eager to take on new challenges and turn innovative ideas into reality. Let’s build something amazing together!
           </p>
           <div className='mt-4'>
             <Link target='blank' to='https://x.com/zafo17_iqbal?t=7qvbVqjqBOA-ixC9DiDC0g&s=09'>
@@ -77,7 +77,7 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className='grid grid-cols-2 gap-2 my-8 md:grid-cols-4'>
+        <div className='grid grid-cols-2 gap-2 mt-16 mb-10 md:grid-cols-4'>
           <img className='h-32 md:h-44 rounded' src={image2} alt='image2' />
           <img className='h-32 md:h-44 rounded' src={image3} alt='image3' />
           <img className='h-32 md:h-44 rounded w-44 md:w-72' src={image4} alt='image4' />

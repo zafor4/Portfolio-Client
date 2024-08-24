@@ -30,7 +30,7 @@ const IndividualProject = (props) => {
   return (
     <Layout title={`project/${id}`} className='container mx-auto px-4 md:px-20'>
       <Preparation>
-        <div className='mt-14'>
+        <div className='mt-20'>
           <img className='w-16 p-1 rounded-full border-2 border-gray' src={`${baseUrl}/project/photo/${id}`}/>
           <h1 className='font-bold text-4xl mt-4'>{props.project.name}</h1>
           <p className='mt-4'>{props.project.description}</p>
