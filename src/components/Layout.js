@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 const Layout = ({title='Title',className,children}) => {
 
-    useEffect(()=>{
-        document.title=title
-    },[])
+  useEffect(() => {
+    document.title = title;
+  }, [title]); 
   return (
     <div>
         <div className='container mx-auto px-4 md:px-20'>
