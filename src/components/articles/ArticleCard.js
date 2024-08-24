@@ -22,10 +22,10 @@ const ArticleCard = (props) => {
 
   return (
     <div className='p-2 hover:bg-slate-100 rounded'>
-        <p className='py-2'>{formattedDate}</p> {/* Render formatted date */}
-        <h5 className='py-2'>{article.name}</h5>
+        <p className='py-2 text-sm text-gray-400'>{formattedDate}</p> {/* Render formatted date */}
+        <h5 className='py-2 font-bold'>{article.name}</h5>
         <p className='py-2'>{truncatedDescription}</p> {/* Render truncated description */}
-        <Link to={`/articles/${article._id}`}>Read More</Link>
+        <Link className='text-purple-400 text-sm' to={`/articles/${article._id}`}>Read More</Link>
     </div>
   );
 }

@@ -11,8 +11,8 @@ import DownloadIcon from '@mui/icons-material/Download';
 const SkillCard = () => {
   const skills = [
     { name: 'Programming Language: ',value:'C++, Javascript, Python, Java' , img:proglang,},
-    { name: 'Frontend: ',value:'reactjs,redux,mui,tailwindcss', img:front,  },
-    {name:'backend: ',value:'nodejs,expressjs,mongoDB',img:back},
+    { name: 'Frontend: ',value:'reactjs, redux, mui, tailwindcss', img:front,  },
+    {name:'backend: ',value:'nodejs, expressjs, mongoDB',img:back},
     {name:'other: ',value:'git & github', img:git}
   ];
 

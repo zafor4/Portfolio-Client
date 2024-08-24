@@ -51,10 +51,10 @@ const Home = (props) => {
 
   return (
     <Layout title='Home' className='container mx-auto px-4 md:px-20'>
-      <div>
+      <div className='mt-16'>
         <div className='md:w-3/4'>
           <h1 className='font-bold text-4xl py-4 leading-10'>
-            Full-Stack Software Engineer | Well trained at MERN Stack | Problem Solver
+            Software developer.
           </h1>
           <p className='leading-8'>
             Hi! I'm a software engineer with expertise in the MERN stack, focused on building efficient web applications. I'm passionate about solving complex problems and creating impactful software.
