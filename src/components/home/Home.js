@@ -30,6 +30,7 @@ const Home = (props) => {
     email: '',
     text: '',
   });
+  const [messageSent, setMessageSent] = useState(false); 
 
   const articles = props.articles.slice(0, 4).map((article) => (
     <div className='mt-8' key={article._id}>
@@ -47,7 +48,14 @@ const Home = (props) => {
 
   const handleSendClick = () => {
     sendMessage(formData)
-    .then(res=>console.log(res))
+    .then(res=>{
+      setMessageSent(true); // Show success message
+        setFormData({ email: '', text: '' }); // Clear inputs
+        setTimeout(() => setMessageSent(false), 3000);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   };
 
   return (
@@ -94,6 +102,7 @@ const Home = (props) => {
                 <p className='ms-2'>Send Message</p>
               </div>
               <div className='mt-2'>
+              {messageSent && <p className='text-green-500'>Message sent successfully!</p>}
                 <TextField
                   sx={{ paddingRight: '30px' }}
                   id='email'
