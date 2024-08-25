@@ -56,7 +56,7 @@ const Home = (props) => {
       <div className='mt-20'>
         <div className='md:w-3/4'>
           <h1 className='font-bold text-4xl leading-10'>
-          Junior Software Engineer | Full-Stack MERN Developer & Software Architecture Enthusiast
+          Software Engineer | Full-Stack MERN Developer & Software Architecture Enthusiast
           </h1>
           <p className='leading-8 mt-4'>
           Hi there! I’m Zafor, a passionate developer with a strong foundation in the MERN stack, dedicated to crafting efficient and scalable software solutions. I thrive on solving complex problems and designing robust software architectures. With a keen eye for detail and a commitment to quality, I'm always eager to take on new challenges and turn innovative ideas into reality. Let’s build something amazing together!

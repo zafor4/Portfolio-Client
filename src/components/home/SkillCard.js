@@ -10,10 +10,10 @@ import DownloadIcon from '@mui/icons-material/Download';
 
 const SkillCard = () => {
   const skills = [
-    { name: 'Programming Language: ',value:'C++, Javascript, Python, Java' , img:proglang,},
+    { name: 'Languages: ',value:'C++, Javascript, Python, Java' , img:proglang,},
     { name: 'Frontend: ',value:'reactjs, redux, mui, tailwindcss', img:front,  },
     {name:'backend: ',value:'nodejs, expressjs, mongoDB',img:back},
-    {name:'other: ',value:'git & github', img:git}
+    {name:'other: ',value:'git & github, Docker', img:git}
   ];
 
   return (
@@ -28,10 +28,10 @@ const SkillCard = () => {
           <div key={skill.name}>
             <div className='flex justify-between border rounded text-center items-center shadow p-2 my-2'>
 <div className='flex items-center text-center'> 
-  <img src={skill.img} className='h-10 rounded-full'/>
-  <p className='ms-2'>{skill.name}</p>
+  <img src={skill.img} className='h-6 rounded-full'/>
+  <p className='ms-2 text-sm'>{skill.name}</p>
   </div>
-            <p className='text-sm'>{skill.value}</p>
+            <p style={{fontSize:'12px'}}>{skill.value}</p>
             </div>
           </div>
         ))}

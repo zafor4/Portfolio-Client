@@ -52,6 +52,7 @@ const Menu = (props) => {
               borderRadius: 2,
               boxShadow: 24,
               p: 4,
+              color: 'black', 
             }}
           >
             <Button
