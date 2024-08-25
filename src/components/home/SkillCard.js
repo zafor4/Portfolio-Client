@@ -41,7 +41,7 @@ const SkillCard = () => {
         variant="outlined"
         color='inherit'
         startIcon={<DownloadIcon />}
-        href="/cv.pdf" // Path to your CV file in the public directory
+        href="/MyCV.pdf" // Path to your CV file in the public directory
         download="Zafor_Iqbal_CV.pdf" // Suggested filename for download
       >
         Download CV
