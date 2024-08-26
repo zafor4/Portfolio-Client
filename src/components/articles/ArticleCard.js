@@ -17,7 +17,7 @@ const ArticleCard = (props) => {
 
   // Truncate the description to the first 200 characters
   const truncatedDescription = article.description.length > 100
-    ? article.description.substring(0, 100) + '...' 
+    ? article.description.substring(0, 80) + '...' 
     : article.description;
 
   return (

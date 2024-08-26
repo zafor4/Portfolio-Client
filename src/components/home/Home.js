@@ -32,7 +32,7 @@ const Home = (props) => {
   });
   const [messageSent, setMessageSent] = useState(false); 
 
-  const articles = props.articles.slice(0, 4).map((article) => (
+  const articles = props.articles.slice(0, 3).map((article) => (
     <div className='mt-8' key={article._id}>
       <ArticleCard article={article} />
     </div>
