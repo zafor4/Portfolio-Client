@@ -21,7 +21,8 @@ const AddProject = (props) => {
     const [values, setValues] = useState({
         name: '',
         description: '',
-        github: '',
+        server: '',
+        client:'',
         preview: '',
         photo: ''
     });
@@ -45,7 +46,8 @@ const AddProject = (props) => {
         const formData = new FormData();
         formData.append('name', values.name);
         formData.append('description', values.description);
-        formData.append('github', values.github);
+        formData.append('server', values.server);
+        formData.append('client', values.client);
         formData.append('preview', values.preview);
         formData.append('photo', values.photo); // Assuming photo is a file
 
@@ -82,9 +84,17 @@ const AddProject = (props) => {
                 />
                 <TextField
                     type='text'
-                    placeholder='Add GitHub link'
-                    name='github'
-                    value={values.github}
+                    placeholder='Add GitHub server link'
+                    name='server'
+                    value={values.server}
+                    onChange={handleInputChange}
+                    fullWidth
+                />
+                                <TextField
+                    type='text'
+                    placeholder='Add GitHub client link'
+                    name='client'
+                    value={values.client}
                     onChange={handleInputChange}
                     fullWidth
                 />
