@@ -42,7 +42,7 @@ const IndividualArticle = (props) => {
         <div className='mt-20'>
             <p className='text-gray-400 text-sm'>{formattedDate}</p>
             <h1 className='mt-8 font-bold text-4xl'>{props.article.name}</h1>
-            <img className='rounded shadow mt-8 relative md:left-48' style={{maxHeight:'600px'}} src={`${baseUrl}/article/photo/${id}`}/>
+            <img className='rounded shadow mt-8 relative' style={{maxHeight:'600px'}} src={`${baseUrl}/article/photo/${id}`}/>
             <p className='mt-8'>{props.article.description}</p>
         </div>
         </Preparation>
