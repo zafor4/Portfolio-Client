@@ -26,7 +26,7 @@ const SkillCard = () => {
       <div className='mt-4'>
         {skills.map(skill => (
           <div key={skill.name}>
-            <div className='flex justify-between border rounded text-center items-center shadow p-2 my-2'>
+            <div className='flex justify-between border rounded text-center items-center shadow p-2 my-4'>
 <div className='flex items-center text-center'> 
   <img src={skill.img} className='h-6 rounded-full'/>
   <p className='ms-2 text-sm'>{skill.name}</p>
