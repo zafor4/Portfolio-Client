@@ -3,7 +3,7 @@ import Layout from '../Layout'
 import { connect } from 'react-redux'
 import { baseUrl } from '../../utils/config'
 import { Card,CardMedia,CardContent,Typography,CardActions,Button } from '@mui/material'
-import ProjectCard from '../articles/ProjectCard'
+import ProjectCard from './ProjectCard'
 import Preparation from '../Preparation'
 
 const mapStateToProps=state=>{

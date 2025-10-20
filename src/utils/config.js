@@ -1,5 +1,7 @@
 import { jwtDecode } from "jwt-decode"
 
+const dev='http://localhost:3001/api'
+
 export const baseUrl='https://portfolioserver-v2b4.onrender.com/api'
 
 export const decoded=token=>{
