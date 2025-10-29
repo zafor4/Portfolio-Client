@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import Layout from '../Layout';
-import { Button,Box, IconButton, Typography } from '@mui/material';
+import { Button,Box, IconButton, Typography ,Checkbox} from '@mui/material';
 import { logout } from '../../redux/AuthActionCreaters';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { deleteProject } from '../../api/ApiProject';
+import { deleteProject,updateProjectHighlighted } from '../../api/ApiProject';
 import { addMessage, fetchArticles, fetchProjects } from '../../redux/ActionCreaters';
-import { deleteArticle } from '../../api/ApiArticle';
+import { deleteArticle,updateArticleHighlighted } from '../../api/ApiArticle';
 import { getMessage } from '../../api/ApiMessage';
 import Messages from './Messages';
+
 
 
 const mapStateToProps=state=>{
@@ -45,6 +46,22 @@ const Dashboard = (props) => {
         .then(res=>props.fetchArticles())
         .catch(err=>console.log(err))
     }
+    const handleupdateProjectHighlighted=(project)=>{
+        console.log(project)
+        //to be implemented
+        updateProjectHighlighted(props.token, project._id, !project.highlight)
+        .then(res => {
+            props.fetchProjects()
+        })
+        .catch(err => console.log(err))
+    }
+    const handleupdateArticleHighlighted=(article)=>{
+        updateArticleHighlighted(props.token, article._id, !article.highlight)
+        .then(res => {
+            props.fetchArticles()
+        })
+        .catch(err => console.log(err))
+    }
 
     useEffect(()=>{
         getMessage(props.token)
@@ -52,14 +69,61 @@ const Dashboard = (props) => {
     },[])
 
 
-    const projects=props.projects.map(project=><Box sx={{border:'1px solid black',alignItems:"center",display:'flex', justifyContent:"space-between",borderRadius:'2px',marginBottom:'4px',padding:'0 4px 0 4px'}} key={project._id} id={project._id} className='flex'>
+    const projects = props.projects.map((project) => (
+      <Box
+        sx={{
+          border: "1px solid black",
+          alignItems: "center",
+          display: "flex",
+          justifyContent: "space-between",
+          borderRadius: "2px",
+          marginBottom: "4px",
+          padding: "0 4px 0 4px",
+        }}
+        key={project._id}
+        id={project._id}
+        className="flex"
+      >
         <Typography>{project.name}</Typography>
-        <IconButton onClick={()=>handleDeleteProject(project._id)}><DeleteIcon /></IconButton>
-    </Box>)
-        const articles=props.articles.map(article=><Box sx={{border:'1px solid black',alignItems:"center",display:'flex', justifyContent:"space-between",borderRadius:'2px',marginBottom:'4px',padding:'0 4px 0 4px'}} key={article._id} id={article._id} className='flex'>
+
+        <Box>
+          <Checkbox
+            checked={project.highlight}
+            onClick={() => handleupdateProjectHighlighted(project)}
+          />
+          <IconButton onClick={() => handleDeleteProject(project._id)}>
+            <DeleteIcon />
+          </IconButton>
+        </Box>
+      </Box>
+    ));
+        const articles = props.articles.map((article) => (
+          <Box
+            sx={{
+              border: "1px solid black",
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "space-between",
+              borderRadius: "2px",
+              marginBottom: "4px",
+              padding: "0 4px 0 4px",
+            }}
+            key={article._id}
+            id={article._id}
+            className="flex"
+          >
             <Typography>{article.name}</Typography>
-            <IconButton onClick={()=>handleDeleteArticle(article._id)}><DeleteIcon /></IconButton>
-        </Box>)
+            <Box>
+              <Checkbox
+                checked={article.highlight}
+                onClick={() => handleupdateArticleHighlighted(article)}
+              />
+              <IconButton onClick={() => handleDeleteArticle(article._id)}>
+                <DeleteIcon />
+              </IconButton>
+            </Box>
+          </Box>
+        ));
 
     return (
         <Layout title='dashboard' className='container mx-auto px-4 md:px-20'>

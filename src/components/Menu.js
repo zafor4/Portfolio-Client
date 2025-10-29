@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
   return {
-    mode: state.mode
+    mode: state.mode,
+    user: state.user
   };
 }
 
@@ -72,6 +73,12 @@ const Menu = (props) => {
               <li><Link to="/about" onClick={handleClose}>About</Link></li> {/* Use Link component */}
               <li><Link to="/projects" onClick={handleClose}>Projects</Link></li> {/* Use Link component */}
               <li><Link to="/articles" onClick={handleClose}>Articles</Link></li> {/* Use Link component */}
+              {props.user && props.user.role === 'admin' && (
+                <li><Link to="/dashboard" onClick={handleClose}>Dashboard</Link></li>
+              )}
+              {!props.user && (
+                <li><Link to="/login" onClick={handleClose}>Login</Link></li>
+              )}
             </ul>
           </Box>
         </Modal>
@@ -79,11 +86,17 @@ const Menu = (props) => {
 
       {/* desktop menu */}
       <div className='hidden md:flex flex-grow justify-center'>
-        <div className='flex justify-center border shadow p-1 rounded-md' style={{ width: '300px' }}>
+        <div className='flex justify-center border shadow p-1 rounded-md' style={{ width: '370px' }}>
           <ul className='flex space-x-8'>
             <li><Link to="/about">About</Link></li> {/* Use Link component */}
             <li><Link to="/projects">Projects</Link></li> {/* Use Link component */}
             <li><Link to="/articles">Articles</Link></li> {/* Use Link component */}
+            {props.user && props.user.role === 'admin' && (
+              <li><Link to="/dashboard">Dashboard</Link></li>
+            )}
+            {!props.user && (
+              <li><Link to="/login">Login</Link></li>
+            )}
           </ul>
         </div>
       </div>

@@ -25,3 +25,15 @@ export const deleteArticle=(token,id)=>{
         }
     })
 }
+export const updateArticleHighlighted=(token,id,highlighted)=>{
+    console.log("Updating article highlight status:", {id, highlighted});
+    return axios.put(
+      `${baseUrl}/article/${id}`,
+      { highlighted },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+}

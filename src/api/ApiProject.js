@@ -25,3 +25,11 @@ export const deleteProject=(token,id)=>{
 export const getProjectById=(id)=>{
     return axios.get(`${baseUrl}/project/${id}`)
 }
+
+export const updateProjectHighlighted=(token,id,highlighted)=>{
+    return axios.put(`${baseUrl}/project/${id}`,{highlighted},{
+        headers:{
+            'Authorization':`Bearer ${token}`
+        }
+    })
+}

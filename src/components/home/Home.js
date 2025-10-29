@@ -17,6 +17,8 @@ import MessageIcon from '@mui/icons-material/Message';
 import { connect } from 'react-redux';
 import { sendMessage } from '../../api/ApiMessage';
 import Preparation from '../Preparation';
+import ProjectCardHome from './ProjectCardHome';
+import ArticleCardHome from './ArticleCardHome';
 
 const mapStateToProps = (state) => {
   return {
@@ -58,6 +60,8 @@ const Home = (props) => {
     });
   };
 
+  console.log('Articles in Home:', props.articles);
+  console.log('Projects in Home:', props.projects);
   return (
     <Layout title='Home' className='container mx-auto px-4 md:px-20'>
       <Preparation>
@@ -86,16 +90,16 @@ const Home = (props) => {
         </div>
 
         <div className='grid grid-cols-2 gap-2 mt-16 mb-10 md:grid-cols-4'>
-          <img className='h-32 md:h-44 rounded' src={image2} alt='image2' />
-          <img className='h-32 md:h-44 rounded' src={image3} alt='image3' />
-          <img className='h-32 md:h-44 rounded w-44 md:w-72' src={image4} alt='image4' />
-          <img className='h-32 md:h-44 rounded' src={image5} alt='image5' />
+          <ArticleCardHome />
+
         </div>
 
-        <div className='my-8 md:flex justify-between'>
-          <div className='md:w-2/4'>{articles}</div>
+        <div className='md:flex justify-between'>
+          <div className='md:w-2/4'>
+            <ProjectCardHome />
+          </div>
 
-          <div className='mt-8 md:w-1/2 md:ms-20'>
+          <div className=' md:w-1/2 md:ms-20'>
             <div className='border rounded p-4'>
               <div className='flex'>
                 <MessageIcon />
