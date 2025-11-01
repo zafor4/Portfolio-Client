@@ -36,9 +36,9 @@ const MySkillSection = () => {
       icon: <SettingsApplicationsIcon fontSize="large" />,
     },
     {
-      title: "WordPress Development",
+      title: "CMS Development",
       description:
-        "Experienced with custom themes, Elementor, and WooCommerce.",
+        "Experienced with WordPress themes, Elementor, and WooCommerce. Also efficient to work with Shopify platform.",
       icon: <BookIcon fontSize="large" />,
     },
   ];
