@@ -43,7 +43,7 @@ const SkillCard = () => {
   ];
 
   return (
-    <div className="border rounded p-4">
+    <div className="border rounded p-4 mt-8">
       <div className="flex">
         <RunCircleIcon />
         <p className="ms-2">Skills</p>

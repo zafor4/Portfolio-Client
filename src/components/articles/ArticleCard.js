@@ -56,12 +56,6 @@ const ArticleCard = (props) => {
     timeZoneName: "short",
   });
 
-  // Truncate the description to the first 200 characters
-  const truncatedDescription =
-    article.description.length > 100
-      ? article.description.substring(0, 80) + "..."
-      : article.description;
-
   return (
     <div className="p-2 hover:bg-slate-100 rounded">
       <p className="py-2 text-sm text-gray-400">{formattedDate}</p>{" "}
@@ -71,7 +65,7 @@ const ArticleCard = (props) => {
       <div
         className="article-description"
         dangerouslySetInnerHTML={{
-          __html: cleanQuillHtml(article.description),
+          __html: cleanQuillHtml(article.description.substring(0, 200)) + "...",
         }}
       />
       {/* <p className="py-2">{truncatedDescription}</p>{" "} */}

@@ -7,6 +7,7 @@ import { baseUrl } from "../../utils/config";
 import Preparation from "../Preparation";
 import DOMPurify from "dompurify";
 import LinkIcon from "@mui/icons-material/Link";
+import { GitHub } from "@mui/icons-material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const mapStateToProps = (state) => {
@@ -71,25 +72,29 @@ const IndividualProject = (props) => {
           />
           <h1 className="font-bold text-4xl mt-4">{props.project.name}</h1>
           <div className="flex justify-between mt-4">
-            <div>
-              <LinkIcon />
-              <a
-                target="_blank"
-                className="ms-1 text-sm mr-2"
-                href={props.project.server}
-              >
-                server
-              </a>
-              <LinkIcon />
-              <a
-                target="_blank"
-                className="ms-1 text-sm"
-                href={props.project.client}
-              >
-                client
-              </a>
+            <div className="flex gap-4">
+              <div className="flex items-center bg-gray-100 text-gray-800 px-2 py-1 rounded hover:bg-gray-200">
+                <GitHub fontSize="small" />
+                <a
+                  target="_blank"
+                  className="ms-1 text-sm mr-2"
+                  href={props.project.server}
+                >
+                  server
+                </a>
+              </div>
+              <div className="flex items-center bg-gray-100 text-gray-800 px-2 py-1 rounded hover:bg-gray-200">
+                <GitHub fontSize="small" />
+                <a
+                  target="_blank"
+                  className="ms-1 text-sm"
+                  href={props.project.client}
+                >
+                  client
+                </a>
+              </div>
             </div>
-            <div>
+            <div className="flex items-center bg-purple-700 text-white px-2 py-1 rounded">
               <ArrowOutwardIcon />
               <a
                 target="_blank"

@@ -88,18 +88,13 @@ const Home = (props) => {
             </Link>
           </div>
         </div>
-
-        <div className='grid grid-cols-2 gap-2 mt-16 mb-10 md:grid-cols-4'>
           <ArticleCardHome />
-
-        </div>
-
         <div className='md:flex justify-between'>
           <div className='md:w-2/4'>
             <ProjectCardHome />
           </div>
 
-          <div className=' md:w-1/2 md:ms-20'>
+          <div className=' md:w-1/2 md:ms-20 mt-8 md:mt-20'>
             <div className='border rounded p-4'>
               <div className='flex'>
                 <MessageIcon />
@@ -136,10 +131,7 @@ const Home = (props) => {
                 </div>
               </div>
             </div>
-
-            <div className='mt-8'>
               <SkillCard />
-            </div>
           </div>
         </div>
       </div>
