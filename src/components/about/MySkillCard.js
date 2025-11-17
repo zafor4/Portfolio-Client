@@ -1,73 +1,98 @@
 import React from "react";
 import CodeIcon from "@mui/icons-material/Code";
-import DevicesIcon from "@mui/icons-material/Devices";
+import BrushIcon from "@mui/icons-material/Brush";
+import TerminalIcon from "@mui/icons-material/Terminal";
 import StorageIcon from "@mui/icons-material/Storage";
-import CloudIcon from "@mui/icons-material/Cloud";
-import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
-import BookIcon from "@mui/icons-material/Book";
+import LanguageIcon from "@mui/icons-material/Language";
+import SecurityIcon from "@mui/icons-material/Security";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
+import WorkspacesIcon from "@mui/icons-material/Workspaces";
 
 const MySkillSection = () => {
   const skills = [
     {
+      icon: <CodeIcon className="text-gray-700" fontSize="large" />,
       title: "Programming Languages",
-      description:
-        "Proficient in JavaScript, TypeScript, C++, Python, and Java.",
-      icon: <CodeIcon fontSize="large" />,
+      items: ["C++", "JavaScript", "TypeScript", "Python"],
     },
     {
+      icon: <BrushIcon className="text-gray-700" fontSize="large" />,
       title: "Frontend Development",
-      description:
-        "Experienced in React, Redux, MUI, Tailwind CSS, and React Native.",
-      icon: <DevicesIcon fontSize="large" />,
+      items: ["React", "Next.js", "React Native", "Tailwind CSS"],
     },
     {
+      icon: <TerminalIcon className="text-gray-700" fontSize="large" />,
       title: "Backend Development",
-      description: "Skilled with Node.js, Express.js, and building REST APIs.",
-      icon: <StorageIcon fontSize="large" />,
+      items: ["Node.js", "Express.js"],
     },
     {
-      title: "Database Management",
-      description: "Hands-on with MongoDB and MySQL for data persistence.",
-      icon: <CloudIcon fontSize="large" />,
+      icon: <StorageIcon className="text-gray-700" fontSize="large" />,
+      title: "Database & Cloud",
+      items: ["MongoDB", "MySQL", "Firebase"],
     },
     {
-      title: "DevOps & Cloud",
-      description: "Knowledge of Docker, AWS, GitHub Actions, and Terraform.",
-      icon: <SettingsApplicationsIcon fontSize="large" />,
+      icon: <LanguageIcon className="text-gray-700" fontSize="large" />,
+      title: "WordPress Development",
+      items: ["Theme Development", "WooCommerce", "Elementor"],
     },
     {
-      title: "CMS Development",
-      description:
-        "Experienced with WordPress themes, Elementor, and WooCommerce. Also efficient to work with Shopify platform.",
-      icon: <BookIcon fontSize="large" />,
+      icon: <SecurityIcon className="text-gray-700" fontSize="large" />,
+      title: "Tools & Version Control",
+      items: ["Git", "GitHub", "CI/CD Basics"],
+    },
+    {
+      icon: <SmartToyIcon className="text-gray-700" fontSize="large" />,
+      title: "Mobile App Development",
+      items: ["React Native", "MapLibre", "Firebase Realtime DB"],
+    },
+    {
+      icon: <WorkspacesIcon className="text-gray-700" fontSize="large" />,
+      title: "Collaborative Skills",
+      items: [
+        "Requirements Analysis",
+        "Bug Fixing",
+        "Team Collaboration",
+        "Code Review",
+      ],
     },
   ];
 
   return (
-    <section className="py-16 bg-white text-center">
-      {/* Section Title */}
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">
-        I SPECIALIZE IN A RANGE OF <span className="text-yellow-500">💪</span>
-        SKILLS
-      </h2>
-      <p className="text-gray-500 text-sm sm:text-base mb-10">
-        Technologies and tools I work with daily
-      </p>
+    <section className="py-16 bg-white">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-[40px] font-extrabold text-gray-900 mb-2">
+            Skills
+          </h2>
+          <p className="text-gray-500 text-sm sm:text-base">
+            Categorized skills and tools I work with.
+          </p>
+        </div>
 
-      {/* Skill Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 ">
-        {skills.map((skill) => (
-          <div
-            key={skill.title}
-            className="border p-6  rounded-lg"
-          >
-            <div className="flex items-center justify-center mb-4 text-yellow-500">
-              {skill.icon}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skills.map((cat) => (
+            <div
+              key={cat.title}
+              className="border rounded-lg p-5 shadow-sm h-full"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded bg-gray-50">{cat.icon}</div>
+                <h3 className="text-lg font-semibold">{cat.title}</h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((it) => (
+                  <span
+                    key={it}
+                    className="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full"
+                  >
+                    {it}
+                  </span>
+                ))}
+              </div>
             </div>
-            <h3 className="text-xl font-semibold mb-2">{skill.title}</h3>
-            <p className="text-gray-600 text-sm">{skill.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

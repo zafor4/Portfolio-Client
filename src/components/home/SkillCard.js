@@ -1,77 +1,96 @@
 import React from "react";
-import RunCircleIcon from "@mui/icons-material/RunCircle";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import proglang from "../../assets/images/code.png";
-import front from "../../assets/images/front-end.png";
-import back from "../../assets/images/api.png";
-import git from "../../assets/images/git.png";
-import Button from "@mui/material/Button";
-import DownloadIcon from "@mui/icons-material/Download";
+import CodeIcon from "@mui/icons-material/Code";
+import TerminalIcon from "@mui/icons-material/Terminal";
+import BrushIcon from "@mui/icons-material/Brush";
+import StorageIcon from "@mui/icons-material/Storage";
+import SecurityIcon from "@mui/icons-material/Security";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
+import WorkspacesIcon from "@mui/icons-material/Workspaces";
+import LanguageIcon from "@mui/icons-material/Language";
+
+const skills = [
+  {
+    icon: <CodeIcon className="text-gray-700" fontSize="large" />,
+    title: "Programming Languages",
+    items: ["C++", "JavaScript", "TypeScript", "Python"],
+  },
+  {
+    icon: <BrushIcon className="text-gray-700" fontSize="large" />,
+    title: "Frontend Development",
+    items: ["React", "Next.js", "React Native", "Tailwind CSS"],
+  },
+  {
+    icon: <TerminalIcon className="text-gray-700" fontSize="large" />,
+    title: "Backend Development",
+    items: ["Node.js", "Express.js"],
+  },
+  {
+    icon: <StorageIcon className="text-gray-700" fontSize="large" />,
+    title: "Database & Cloud",
+    items: ["MongoDB", "MySQL", "Firebase"],
+  },
+  {
+    icon: <LanguageIcon className="text-gray-700" fontSize="large" />,
+    title: "WordPress Development",
+    items: ["Theme Development", "WooCommerce", "Elementor"],
+  },
+  {
+    icon: <SecurityIcon className="text-gray-700" fontSize="large" />,
+    title: "Tools & Version Control",
+    items: ["Git", "GitHub", "CI/CD Basics"],
+  },
+  {
+    icon: <SmartToyIcon className="text-gray-700" fontSize="large" />,
+    title: "Mobile App Development",
+    items: ["React Native", "MapLibre", "Firebase Realtime DB"],
+  },
+  {
+    icon: <WorkspacesIcon className="text-gray-700" fontSize="large" />,
+    title: "Collaborative Skills",
+    items: [
+      "Requirements Analysis",
+      "Bug Fixing",
+      "Team Collaboration",
+      "Code Review",
+    ],
+  },
+];
 
 const SkillCard = () => {
-  const skills = [
-    {
-      name: "Programming Languages",
-      value: "JavaScript, TypeScript, C++, Python, Java",
-      img: proglang,
-    },
-    {
-      name: "Frontend",
-      value: "React, Redux, MUI, Tailwind CSS, React Native",
-      img: front,
-    },
-    {
-      name: "Backend",
-      value: "Node.js, Express.js, MongoDB",
-      img: back,
-    },
-    {
-      name: "Database",
-      value: "MongoDB, MySQL",
-      img: back,
-    },
-    {
-      name: "DevOps",
-      value: "Docker, AWS, CI/CD (GitHub Actions), Terraform",
-      img: git,
-    },
-    {
-      name: "WordPress",
-      value: "Theme development, Elementor, WooCommerce",
-      img: front,
-    },
-  ];
-
   return (
-    <div className="border rounded p-4 mt-8">
-      <div className="flex">
-        <RunCircleIcon />
-        <p className="ms-2">Skills</p>
+    <div className="mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 items-center">
+        <h2 className="text-3xl md:text-[40px]  font-bold ">My Skills</h2>
+        <p className="text-lg md:text-xl text-gray-700">
+          An overview of the skills I rely on to craft dependable digital
+          products — spanning full-stack development, mobile app creation,
+          database design, and clean, responsive user interfaces.
+        </p>
       </div>
 
-      <div className="mt-4">
-        {skills.map((skill) => (
-          <div key={skill.name}>
-            <div className="flex justify-between border rounded text-center items-center shadow p-2 my-4">
-              <div className="flex items-center text-center">
-                <img src={skill.img} className="h-6 rounded-full" />
-                <p className="ms-2 text-sm">{skill.name}</p>
-              </div>
-              <p style={{ fontSize: "12px" }}>{skill.value}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skills.map((cat) => (
+          <div
+            key={cat.title}
+            className="border rounded-lg p-5 shadow-sm h-full"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded bg-gray-50">{cat.icon}</div>
+              <h3 className="text-lg font-semibold">{cat.title}</h3>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {cat.items.map((it) => (
+                <span
+                  key={it}
+                  className="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full"
+                >
+                  {it}
+                </span>
+              ))}
             </div>
           </div>
         ))}
-      </div>
-      <div className="text-center pt-1">
-        <Button
-          variant="outlined"
-          color="inherit"
-          startIcon={<DownloadIcon />}
-          href="/MyCV.pdf" // Path to your CV file in the public directory
-          download="Zafor_Iqbal_CV.pdf" // Suggested filename for download
-        >
-          Download CV
-        </Button>
       </div>
     </div>
   );

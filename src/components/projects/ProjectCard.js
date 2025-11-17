@@ -42,7 +42,7 @@ const ProjectCard = (props) => {
         <div className="flex justify-between mt-4 w-full items-center ">
           <img
             className="w-20 h-20 object-cover rounded-full border-2 border-gray-200 p-1"
-            src={`${baseUrl}/project/photo/${props.project._id}`}
+            src={props.project.photo || `${baseUrl}/project/photo/${props.project._id}`}
             alt={`${props.project.name} thumbnail`}
           />
 
@@ -73,7 +73,7 @@ const ProjectCard = (props) => {
       <div className="mt-3 flex items-center justify-between text-sm ">
         <Link
           to={`/projects/${props.project._id}`}
-          className="  bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700 text-sm shadow"
+          className="bg-[#0BC1C0] text-black px-3 py-1 rounded hover:bg-[#68d8d8] text-sm shadow"
         >
           Read More
         </Link>

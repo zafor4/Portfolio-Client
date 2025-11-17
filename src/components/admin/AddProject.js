@@ -26,6 +26,7 @@ const AddProject = (props) => {
     client: "",
     preview: "",
     photo: "",
+    category: "",
   });
 
   const editorRef = useRef(null);
@@ -48,6 +49,7 @@ const AddProject = (props) => {
     // Create a FormData object
     const formData = new FormData();
     formData.append("name", values.name);
+    formData.append("category", values.category);
     const descriptionHtml = editorRef.current
       ? editorRef.current.getContent()
       : values.description;
@@ -82,6 +84,15 @@ const AddProject = (props) => {
           onChange={handleInputChange}
           fullWidth
           required
+        />
+        <Typography>Category</Typography>
+        <TextField
+          type="text"
+          placeholder="Enter Project Category"
+          name="category"
+          value={values.category}
+          onChange={handleInputChange}
+          fullWidth
         />
         <div>
           <Typography variant="subtitle1">Description</Typography>

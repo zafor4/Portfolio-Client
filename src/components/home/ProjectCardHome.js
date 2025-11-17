@@ -45,55 +45,70 @@ const ProjectCardHome = ({ projects }) => {
     });
   };
 
+  console.log(projects)
   return (
-    <div className="mt-8">
-      <h2 className="text-2xl font-bold mb-4">My Projects</h2>
-      <div className="grid grid-cols-1 gap-4">
-        {highlighted.map((project) => (
+    <div className="mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 items-center">
+        <h2 className="text-3xl md:text-[40px]  font-bold ">My Projects</h2>
+        <p className="text-lg md:text-xl text-gray-700">
+          A snapshot of the work I’ve crafted — from full-stack web platforms to
+          mobile solutions designed for real-world use. Each project reflects my
+          focus on clean architecture, practical features, and smooth user
+          experiences.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        {highlighted.map((project, index) => (
           <div
             key={project._id || project.name}
-            className="border rounded p-4 gap-4 items-start relative"
+            className="bg-[#f8f8f8] p-10 rounded-sm border transition hover:shadow-sm"
           >
-            <div className="flex justify-between w-full items-center mb-4">
+            {/* Number */}
+            <div className="flex justify-between mb-4">
+              <p className="text-sm font-medium text-gray-500 ">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <p className="text-sm font-medium bg-[#0BC1C0] text-white px-2 py-1 rounded-3xl">
+                {project.category}
+              </p>
+            </div>
+
+            {/* Logo + Name */}
+            <div className="flex items-center gap-4 mb-4">
               <img
-                src={`${baseUrl}/project/photo/${project._id}`}
+                src={project.photo || `${baseUrl}/project/photo/${project._id}`}
                 alt={project.name}
-                className="w-12 h-12 rounded-full object-cover"
+                className="w-12 h-12 rounded object-cover"
               />
-              <a
-                href={project.preview}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-100 text-gray-800 px-2 py-1 rounded hover:bg-gray-200 text-sm shadow inline-flex items-center gap-1"
-              >
-                <ArrowOutwardIcon style={{ fontSize: 16 }} />
-                Preview
-              </a>
+              <h3 className="font-semibold text-xl text-gray-900">
+                {project.name}
+              </h3>
             </div>
 
-            <div className="flex-1 pr-20">
-              <h3 className="font-bold text-lg">{project.name}</h3>
-              <div
-                className="mt-2 text-sm text-gray-700"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    cleanQuillHtml(project.description).substring(0, 900) +
-                    "...",
-                }}
-              />
-            </div>
+            {/* Description */}
+            <p
+              className="text-gray-600 leading-relaxed mb-6"
+              dangerouslySetInnerHTML={{
+                __html:
+                  cleanQuillHtml(project.description).substring(0, 1000) +
+                  "...",
+              }}
+            />
 
+            {/* Learn More */}
             <Link
               to={`/projects/${project._id}`}
-              className="absolute bottom-3 right-3 bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700 text-sm shadow"
+              className="text-sm font-medium text-black inline-flex items-center gap-1 hover:opacity-70"
             >
-              Read More
+              Learn More
+              <ArrowOutwardIcon style={{ fontSize: 16 }} />
             </Link>
           </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default connect(mapStateToProps)(ProjectCardHome);

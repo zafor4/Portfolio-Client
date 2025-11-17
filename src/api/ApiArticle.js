@@ -3,6 +3,8 @@ import { baseUrl } from "../utils/config"
 
 
 export const createArticle=(token,data)=>{
+    console.log("Creating article with data:", data);
+    console.log("Using token:", token);
     return axios.post(`${baseUrl}/article`,data,{
         headers:{
             'Authorization':`Bearer ${token}`
